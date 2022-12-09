@@ -10,16 +10,29 @@
     <main>
         <div>
             <h1>My Projects</h1>
-            {% if list_projects == 0 %}
+            {% if not list_projects %}
                 <p>You are not assigned to any projects</p>
             {% else %}
                 <table>
                     <thead>
                         <tr>
-                            <td>Name</td>
-                            <td>Number of tasks</td>
+                            <th>Name</th>
+                            <th>Number of tasks</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {% for project in list_projects %}
+                            <tr>
+                                <td>{{ project.name }}</td>
+                                <td>{{ project.projects.count }}</td>
+                                <nav>
+                                    <li>
+                                        <a href="{% url 'list_projects' %}"> List Projects</a>
+                                    </li>
+                                </nav>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
             {% endif %}
         </div>
