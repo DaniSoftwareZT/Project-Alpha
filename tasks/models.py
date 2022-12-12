@@ -20,5 +20,4 @@ class Task(models.Model):
         null=True,
         related_name="tasks",
         on_delete=models.CASCADE,
-
     )
