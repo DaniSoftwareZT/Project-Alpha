@@ -24,10 +24,11 @@
                         {% for project in list_projects %}
                             <tr>
                                 <td>{{ project.name }}</td>
-                                <td>{{ project.projects.count }}</td>
+                                <td>{{ project.tasks.all|length }}</td>
                                 <nav>
                                     <li>
-                                        <a href="{% url 'list_projects' %}"> List Projects</a>
+                                        <a href="{% url 'list_projects' %}">Project List</a>
+                                        <a href="{% url 'show_project' project.id %}">{{ project.name }}</a>
                                     </li>
                                 </nav>
                             </tr>

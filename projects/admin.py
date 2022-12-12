@@ -4,5 +4,6 @@ from projects.models import Project
 # Register your models here.
 
 
+@admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    admin.site.register(Project)
+    list_display = ("name", "owner", "id")
